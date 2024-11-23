@@ -2,13 +2,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
-import { settingType } from '../utils/types/types';
+import { settingType } from '../type'; 
 
 const initialState:settingType={ 
     setting:null,
     loading:false,
-    categories:null,
-    instructors:null
+    categories:[]
 }
 
 const settingSlice = createSlice({
@@ -17,7 +16,8 @@ const settingSlice = createSlice({
   reducers: {
     createSetting: (state, action) => {
 
-      state.setting = action.payload.data;
+      state.setting = action.payload.settings;
+      state.categories = action.payload.categories;
 
     },
     changeLoading: (state, action) => {

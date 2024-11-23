@@ -4,13 +4,16 @@ import './App.css'
 import queryClient from './app/utils/hooks/queryClient'
 import { RouterProvider } from 'react-router-dom'
 import routes from './app/router'
-
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from './app/store'
 function App() {
 
   return (
+    <ReduxProvider store={store}>
     <QueryClientProvider client={queryClient}>
     <RouterProvider router={routes} />
   </QueryClientProvider>
+  </ReduxProvider>
   )
 }
 

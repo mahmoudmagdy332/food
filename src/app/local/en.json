@@ -197,5 +197,20 @@
   "Help": "Articles",
   "Terms": "Terms of Services",
   "Privacy": "Privacy policy",
-  "copyWrite": "© 2024 Delve Worldwide, Inc., Delve and the Delve Logo are trademarks of Delve Worldwide, Inc."
+  "copyWrite": "© 2024 Delve Worldwide, Inc., Delve and the Delve Logo are trademarks of Delve Worldwide, Inc.",
+
+  "phone":"Phone",
+  "address":"Address",
+  "age":"Age",
+  "gender":"Gender",
+  "diabetes":"Diabetes",
+  "hypertension":"Hypertension",
+  "heart_disease":"Heart Disease",
+  "asthma":"Asthma",
+  "cancer":"Cancer",
+  "weight":"Weight",
+  "contact":"Contact Us",
+  "success":"sent Form success",
+  "Update":"Update Profile"
+
 }

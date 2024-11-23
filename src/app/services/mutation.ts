@@ -1,44 +1,29 @@
 import { useMutation } from "@tanstack/react-query";
 import {
-  CategoryCoursesAPI,
-  ConfirmSignupCodeAPI,
-  ConfrimCodeAPI,
-  confrimPasswordAPI,
   contactUsAPI,
-  CourseDetailsAPI,
-  CoursesAPI,
-  ForgetPasswordAPI,
   postLoginUserAPI,
   postSignupUserApi,
-  postSocialLoginUserAPI,
   SearchInstructorAPI,
   SingleBookAPI,
   SingleInstructorAPI,
-  SinglePackageAPI,
 } from "../utils/api";
 import {
-  confrimCode,
-  confrimPassword,
-  filterType,
-  forgetPassword,
+
+
+  
   IFormContuctInput,
+  IFormInput,
   password,
-  socialLogin,
   userData,
-} from "../utils/types/types";
+} from '../type'
 import { AxiosError } from "axios";
 import Cookies from "js-cookie";
 
 import {
-  ApplyJopAPI,
   changePasswordAPI,
-  postSurveyAPI,
   UpdateProfileAPI,
 } from "../utils/apiAuth";
 
-import { answerType } from "../type";
-import { FormValues } from "../../pages/JopApplication";
-import { UpdateForm } from "../../components/Account/PersonalInfo";
 
 export interface CustomError {
   message: string;
@@ -79,19 +64,7 @@ export function useSingleInstructorMutation() {
     },
   });
 }
-export function useSurveyMutation() {
-  return useMutation({
-    mutationFn: (data: { answers: answerType[] }) => {
-      return postSurveyAPI(data);
-    },
 
-    onError: (err: AxiosError<CustomError>) => {
-      console.error("Login error", err);
-
-      return err;
-    },
-  });
-}
 
 export function useLoginMutation() {
   return useMutation({
@@ -107,19 +80,6 @@ export function useLoginMutation() {
   });
 }
 
-export function useSocialLoginMutation() {
-  return useMutation({
-    mutationFn: (data: socialLogin) => {
-      return postSocialLoginUserAPI(data);
-    },
-
-    onError: (err: AxiosError<CustomError>) => {
-      console.error("Login error", err);
-
-      return err;
-    },
-  });
-}
 
 export const useSignupMutation = () => {
   return useMutation({
@@ -135,13 +95,10 @@ export const useSignupMutation = () => {
   });
 };
 
-export const useConfirmSignupCodeMutation = () => {
+export const useUpdateUserMutation = () => {
   return useMutation({
-    mutationFn: (data: confrimCode) => {
-      return ConfirmSignupCodeAPI(data);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
+    mutationFn: (data: IFormInput) => {
+      return UpdateProfileAPI(data);
     },
   });
 };
@@ -157,114 +114,20 @@ export const useChangePasswordMutation = () => {
   });
 };
 
-export const useUpdateUserMutation = () => {
-  return useMutation({
-    mutationFn: (data: UpdateForm) => {
-      return UpdateProfileAPI(data);
-    },
-  });
-};
 
-export const useForgetPasswordMutation = () => {
-  return useMutation({
-    mutationFn: (data: forgetPassword) => {
-      return ForgetPasswordAPI(data);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
-export const useConfrimCodeMutation = () => {
-  return useMutation({
-    mutationFn: (data: confrimCode) => {
-      return ConfrimCodeAPI(data);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
-export const useConfrimPasswordMutation = () => {
-  return useMutation({
-    mutationFn: (data: confrimPassword) => {
-      return confrimPasswordAPI(data);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
 
-export const useJopApplicationMutation = () => {
-  return useMutation({
-    mutationFn: (data: FormValues) => {
-      console.log(data);
-      return ApplyJopAPI(data);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
 
-// export const useUpdateProfile = () => {
-//   return useMutation({
-//     mutationFn: (data: UpdateForm) => {
-//       return UpdateProfileAPI(data);
-//     },
-//   });
-// };
 
-export const useCategoryCoursesMutation = () => {
-  return useMutation({
-    mutationFn: (id: string) => {
-      return CategoryCoursesAPI(id);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
-export const UsecoursesMutation = () => {
-  return useMutation({
-    mutationFn: ({
-      filter,
-      currentPage,
-    }: {
-      filter: filterType;
-      currentPage: number;
-    }) => {
-      return CoursesAPI(filter, currentPage);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
 
-export const useSinglePackageMutation = () => {
-  return useMutation({
-    mutationFn: (id: string) => {
-      return SinglePackageAPI(id);
-    },
 
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
 
-export const useSingleCourseMutation = () => {
-  return useMutation({
-    mutationFn: (id: string) => {
-      return CourseDetailsAPI(id);
-    },
-    onError: (err: AxiosError<CustomError>) => {
-      return err;
-    },
-  });
-};
+
+
+
+
+
+
+
 
 export const useContuctMutation = () => {
   return useMutation({

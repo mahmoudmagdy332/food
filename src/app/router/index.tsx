@@ -7,6 +7,10 @@ import Search from "../../pages/Search";
 import Area from "../../pages/Area";
 import ContactUs from "../../pages/ContactUs";
 import Ingredients from "../../pages/Ingredients";
+import Login from "../../pages/Login";
+import SignUp from "../../pages/SignUp";
+import AuthenticationRouter from "./guard/AuthenticationRouter";
+import Profile from "../../pages/Profile";
 
 
 
@@ -59,6 +63,33 @@ const routes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Ingredients />
+          </Suspense>
+        ),
+      },
+      {
+        path:"/login",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path:"/sign-up",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <SignUp />
+          </Suspense>
+        ),
+      },
+      {
+        path:"/profile",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <AuthenticationRouter>
+              <Profile />
+             </AuthenticationRouter>
+           
           </Suspense>
         ),
       },

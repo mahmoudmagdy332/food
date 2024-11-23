@@ -1,9 +1,9 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { baseUrl } from "../config";
-import { ApplyJop, password, userUpdateData } from "./types/types";
+import {  IFormInput, password,  } from "../type";
 
-import { answerType } from "../type";
+
 
 const api = axios.create({
   baseURL: baseUrl(),
@@ -12,42 +12,40 @@ const api = axios.create({
   },
 });
 
-api.interceptors.request.use(async (config) => {
-  const token = Cookies.get("access_token");
-  token && (config.headers["Authorization"] = `Bearer ${token}`);
+api.interceptors.request.use(
+  async (config) => {
+    const token = Cookies.get("access_token");
+    if (token) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    } else {
+      location.href = "/login";
+    }
+    return config;
+  },
+  (error) => {
+    if (error.response?.status === 401) {
+      location.href = "/login";
+    }
+    return Promise.reject(error);
+  }
+);
 
-  return config;
-});
 
 export const getLogoutAPI = () => api.get("logout");
 
-export const getMyLearningAPI = (currentPage:number) => api.get(`my-learnings?page=${currentPage}`);
-export const getStartLessonAPI = (lessonId:string|undefined) => api.get(`start-lesson/${lessonId}`);
 
 
-export const getsurveyAPI = () => api.get("survey");
-export const myLearningIdAPI = (id: string | undefined) =>
-  api.get(`my-learnings/${id}`);
+
 
 export const getStudentProfileAPI = () => api.get("profile");
-export const UpdateProfileAPI = (data: userUpdateData) =>
-  api.post("profile", data, {
+export const UpdateProfileAPI = (data: IFormInput) =>
+  api.post("update-profile", data, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
 
-export const ApplyJopAPI = (data: ApplyJop) =>
-  api.post("submit-applications", data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
 
-export const SubscribePackageAPI = (id: number | undefined) =>
-  api.get(`subscribe/package/${id}`);
 export const changePasswordAPI = (data: password) =>
   api.post("change-password", data);
 
-export const postSurveyAPI = (data: { answers: answerType[] }) =>
-  api.post("submit-survey", data);

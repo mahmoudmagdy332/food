@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.profile-image{
+    width: 100px;
+    height: 100px;
+    background-color: var(--main-color);
+    border: 2px solid rgb(184, 184, 184);
+    border-radius: 100%;
+    justify-content: center;
+    margin: 20px 0;
+    cursor: pointer;
+   }
+   .xmark-image{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: goldenrod;
+    background-color: #000000;
+    border-radius: 100%;
+    cursor: pointer;
+   }
+   .profile-image:hover{
+  
+    background-color: #000000;
+    transition: .3s;
+   }
+   .profile-image p{
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+   }
+   .profile-image i{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+   }
+  
+   .loading-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+   }
