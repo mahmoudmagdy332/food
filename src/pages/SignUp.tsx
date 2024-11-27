@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useSignUp } from "../app/utils/hooks/useAuth"; 
 import { useLanguageSelector } from "../app/slices/languageSlice"; 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LiaEyeSlashSolid, LiaEyeSolid } from "react-icons/lia";
 
 interface IFormInput {
@@ -39,9 +39,13 @@ const SignUp = () => {
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     mutate(data);
   };
-
+  const navigate = useNavigate();
   const password = watch("password");
-
+  useEffect(()=>{
+    if (isSuccess) {
+      navigate('/');
+    }
+  },[isSuccess])
   return (
     <div className="bg-mainHeader py-20">
       <div className=" w-11/12 lg:w-3/4 m-auto rounded-xl shadow-lg bg-white flex flex-col lg:flex-row items-center">

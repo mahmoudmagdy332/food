@@ -46,7 +46,7 @@ export const useLogin = () => {
 export const useSignUp = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { mutate, isPending, data,isSuccess, error, isError } = useSignupMutation();
-
+   
   const ErrorCheck = error?.response?.status === 422;
 
   useEffect(() => {

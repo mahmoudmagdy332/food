@@ -11,6 +11,7 @@ import Login from "../../pages/Login";
 import SignUp from "../../pages/SignUp";
 import AuthenticationRouter from "./guard/AuthenticationRouter";
 import Profile from "../../pages/Profile";
+import Meals from "../../pages/Meals";
 
 
 
@@ -90,6 +91,14 @@ const routes = createBrowserRouter([
               <Profile />
              </AuthenticationRouter>
            
+          </Suspense>
+        ),
+      },
+      {
+        path:"/meals/:id",
+        element: (
+          <Suspense fallback={<Loading />}>
+              <Meals />
           </Suspense>
         ),
       },

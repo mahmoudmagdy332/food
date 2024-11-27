@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSettingSliceSelector } from "../app/slices/settingSlice";
 
 
@@ -7,7 +8,7 @@ const Home = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 my-2 mx-3 ">
       {categories?.map((category)=>(
-        <div >
+        <Link to={`meals/${category.id}`} >
         <div className="meal position-relative overflow-hidden rounded-2 cursor-pointer" >
         <img src={category.image} className="w-full h-72 object-cover"/>
         <div className="meal-layer position-absolute text-center text-black p-2">
@@ -15,7 +16,7 @@ const Home = () => {
         <p>${category.description.split(" ").splice(0,20).join(" ")}</p>
         </div>
         </div>
-        </div>
+        </Link>
       ))}
       
     </div>

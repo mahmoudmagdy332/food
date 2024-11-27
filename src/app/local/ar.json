@@ -198,4 +198,17 @@
   "Terms": "شروط الخدمة",
   "Privacy": "سياسة الخصوصية",
   "copyWrite": "© 2024 Delve Worldwide, Inc., Delve and the Delve Logo are trademarks of Delve Worldwide, Inc."
+  ,"phone": "هاتف",
+  "address": "عنوان",
+  "age": "عمر",
+  "gender": "جنس",
+  "diabetes": "سكري",
+  "hypertension": "ارتفاع ضغط الدم",
+  "heart_disease": "أمراض القلب",
+  "asthma": "الربو",
+  "cancer": "السرطان",
+  "weight": "وزن",
+  "contact": "تواصل معنا",
+  "success": "تم إرسال النموذج بنجاح",
+  "Update": "تحديث الملف الشخصي"
 }

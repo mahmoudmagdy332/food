@@ -15,6 +15,7 @@ import {
   getCareerAPI,
   getCountriesAPI,
   getPageAPI,
+  MealsAPI,
 } from "../utils/api";
 import {
   getLogoutAPI,
@@ -24,6 +25,15 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
 import { changeLoading } from "../slices/settingSlice";
 import { removeUser } from "../slices/userSlice";
+
+
+export function MealsQuery(id: string|undefined) {
+  return useQuery({
+    queryKey: ["meals", id],
+    queryFn: async () => await MealsAPI(id),
+    refetchOnMount: false,
+  });
+}
 
 export function settingQuery() {
   return useQuery({

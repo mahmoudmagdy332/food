@@ -1,7 +1,5 @@
 
-export type meal={
-  strArea:string
-}
+
 export type ingredient={
   strIngredient:string,
   strDescription:string
@@ -56,11 +54,11 @@ export type IFormInput= {
   age:number;
   gender:string;
   weight:number;
-  cancer:boolean;
-  asthma:boolean;
-  heart_disease:boolean;
-  hypertension:boolean;
-  diabetes:boolean;
+  cancer:number;
+  asthma:number;
+  heart_disease:number;
+  hypertension:number;
+  diabetes:number;
   address:string;
 }
 export type User = {
@@ -71,11 +69,11 @@ export type User = {
   age:number;
   gender:string;
   weight:number;
-  cancer:boolean;
-  asthma:boolean;
-  heart_disease:boolean;
-  hypertension:boolean;
-  diabetes:boolean;
+  cancer:number;
+  asthma:number;
+  heart_disease:number;
+  hypertension:number;
+  diabetes:number;
   address:string;
 };
 
@@ -120,3 +118,27 @@ export interface IFormContuctInput {
   message: string;
   phone: string;
 }
+
+
+
+
+export type meal = {
+          id: 1,
+          image:string,
+          price: number,
+          category_id: number,
+          salad_id: number,
+          rice_id: number,
+          drink_id: number,
+          bread_id: number,
+          diabetes: boolean,
+          hypertension: boolean,
+          heart_disease: boolean,
+          asthma: boolean,
+          cancer: boolean,
+          name:string,
+          description:string,
+};
+
+
+type CartType=
