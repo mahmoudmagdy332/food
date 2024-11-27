@@ -43,6 +43,7 @@ const Layout = () => {
   return (
     <div>
         <SideBar />
+    
         <div className="min-h-screen ms-20">
              <Outlet />
         </div>

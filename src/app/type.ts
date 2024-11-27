@@ -141,4 +141,8 @@ export type meal = {
 };
 
 
-type CartType=
+export type CartType={ 
+  items:{meal:meal,quantity:number}[],
+  items_count:number,
+  cart_total:number
+ }
