@@ -118,16 +118,16 @@ const CartScreen = () => {
                 <div className=' mt-3 mb-2 flex justify-between cart-size'>
                     <p  style={{ color:'rgb(20 20 20 / 66%)' }}>عدد الأصناف</p>
 
-                        <p>{items.length}</p>
+                        <p className='text-yellow-900'>{items.length}</p>
                     </div>
                     <div className='  mt-3 mb-2 flex justify-between cart-size'>
                     <p  style={{ color:'rgb(20 20 20 / 66%)' }}>مجموع المنتجات</p>
 
-                    <p>{items_count}</p>
+                    <p className='text-yellow-900'>{items_count}</p>
                     </div>
                     <div className=' mt-3 mb-2 flex justify-between cart-size'>
                     <p  style={{ color:'rgb(20 20 20 / 66%)' }}>الإجمالي</p>
-                    <p>{cart_total}$</p>
+                    <p className='text-yellow-900 font-bold text-xl'>{cart_total}$</p>
                         
                     </div> 
                 
