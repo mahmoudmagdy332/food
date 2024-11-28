@@ -20,15 +20,15 @@ if(window.localStorage.CartStorage){
 }
 
 export const CartSlice =  createSlice({
-  name: 'Auth',
+  name: 'cart',
   initialState,
   reducers: {
     add_item: (state,action) => {
     
-      if(state.items.find((item)=>item.meal.id===action.payload.id)){
+      if(state.items.find((item)=>item.meal.id===action.payload.meal.id)){
       
         state.items=state.items.map((item)=>{
-           if(item.meal.id===action.payload.id){          
+           if(item.meal.id===action.payload.meal.id){          
             item.quantity=item.quantity+action.payload.quantity;
            }    
            return item;      
@@ -42,7 +42,7 @@ export const CartSlice =  createSlice({
        state.items.unshift(item);
       }
       state.items_count=state.items_count+action.payload.quantity;
-      state.cart_total=state.cart_total+(parseFloat(action.payload.product.price)*action.payload.quantity);
+      state.cart_total=state.cart_total+(parseFloat(action.payload.meal.price)*action.payload.quantity);
      
       window.localStorage.setItem("CartStorage",JSON.stringify(state));
       

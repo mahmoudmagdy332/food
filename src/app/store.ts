@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import languageSlice from "./slices/languageSlice";
 import userSlice  from "./slices/userSlice"; 
 import settingSlice from "./slices/settingSlice";
-import { CartSlice } from "./slices/CartSlice";
+import  CartSlice  from "./slices/CartSlice";
 
 
 

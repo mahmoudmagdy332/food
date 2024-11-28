@@ -2,11 +2,19 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MealsQuery } from "../app/services/queries";
 import { meal } from "../app/type";
+import { useDispatch } from "react-redux";
+import { add_item } from "../app/slices/CartSlice";
 
 const Meals = () => {
     const { id } = useParams();
     const {data,refetch}=MealsQuery(id);
     const [meals,setMeals]=useState<meal[]>([]);
+
+    const dispatch = useDispatch();
+
+    const AddToCart=(meal:meal)=>{
+        dispatch(add_item({meal:meal,quantity:1})); 
+    }
     useEffect(() => {
         if (id) {
         refetch();
@@ -30,11 +38,11 @@ const Meals = () => {
              <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">{meal.name}</h5>
          </a>
          <div className="flex items-center mt-2.5 mb-3">
-         <span className="text-3xl font-bold text-gray-900 ">${meal.price}00</span>
+         <span className="text-3xl font-bold text-gray-900 ">${meal.price}</span>
          </div>
          <div className="flex items-center justify-between">
             
-             <a href="#" className="text-black bg-yellow-200 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Add to cart</a>
+             <button onClick={()=>AddToCart(meal)}  className="text-black bg-yellow-200 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Add to cart</button>
          </div>
      </div>
  </div>

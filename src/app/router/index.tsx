@@ -12,6 +12,7 @@ import SignUp from "../../pages/SignUp";
 import AuthenticationRouter from "./guard/AuthenticationRouter";
 import Profile from "../../pages/Profile";
 import Meals from "../../pages/Meals";
+import CartScreen from "../../pages/Cart";
 
 
 
@@ -99,6 +100,14 @@ const routes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
               <Meals />
+          </Suspense>
+        ),
+      },
+      {
+        path:"/cart",
+        element: (
+          <Suspense fallback={<Loading />}>
+              <CartScreen />
           </Suspense>
         ),
       },
