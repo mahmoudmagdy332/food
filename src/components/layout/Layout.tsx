@@ -44,7 +44,7 @@ const Layout = () => {
     <div>
         <SideBar />
     
-        <div className="min-h-screen ms-20">
+        <div className=" ms-20">
              <Outlet />
         </div>
     </div>

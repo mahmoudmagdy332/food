@@ -7,7 +7,11 @@ import { settingType } from '../type';
 const initialState:settingType={ 
     setting:null,
     loading:false,
-    categories:[]
+    categories:[],
+    ricee:[],
+    braeds:[],
+    drinks:[],
+    salads:[]
 }
 
 const settingSlice = createSlice({
@@ -16,8 +20,12 @@ const settingSlice = createSlice({
   reducers: {
     createSetting: (state, action) => {
 
-      state.setting = action.payload.settings;
+      state.setting = action.payload.setting;
       state.categories = action.payload.categories;
+      state.ricee = action.payload.ricee;
+      state.braeds = action.payload.braeds;
+      state.drinks = action.payload.drinks;
+      state.salads = action.payload.salads;
 
     },
     changeLoading: (state, action) => {

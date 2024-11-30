@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { baseUrl } from "../config";
-import { IFormContuctInput, userData } from "../type";
+import { IFormContuctInput, IFormSuggestionInput, userData } from "../type";
 
 const api = axios.create({
   baseURL: baseUrl(),
@@ -24,6 +24,8 @@ export const getSettingAPI = () => api.get("settings");
 
 
 export const MealsAPI = (id:string|undefined) => api.get(`categotry-details/${id}`);
+export const MealAPI = (id:string|undefined) => api.get(`meal-details/${id}`);
+
 export const getCategoriesQueryAPI = () => api.get("categories");
 
 export const getHomeAPI = () => api.get("home");
@@ -64,4 +66,7 @@ export const instructorsAPI = () => api.get("instructors");
 
 export const contactUsAPI = (contuctForm: IFormContuctInput) =>
   api.post("/contact-us", contuctForm);
+
+export const SuggestionAPI = (data: IFormSuggestionInput) =>
+  api.post("/suggestions", data);
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { baseUrl } from "../config";
-import {  IFormInput, password,  } from "../type";
+import {  IFormInput, orderData, password,  } from "../type";
 
 
 
@@ -36,6 +36,8 @@ export const getLogoutAPI = () => api.get("logout");
 
 
 
+export const OrderAPI = (data:orderData ) =>
+  api.post("create-order", data);
 
 export const getStudentProfileAPI = () => api.get("profile");
 export const UpdateProfileAPI = (data: IFormInput) =>

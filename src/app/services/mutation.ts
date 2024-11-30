@@ -6,6 +6,7 @@ import {
   SearchInstructorAPI,
   SingleBookAPI,
   SingleInstructorAPI,
+  SuggestionAPI,
 } from "../utils/api";
 import {
 
@@ -13,6 +14,8 @@ import {
   
   IFormContuctInput,
   IFormInput,
+  IFormSuggestionInput,
+  orderData,
   password,
   userData,
 } from '../type'
@@ -21,6 +24,7 @@ import Cookies from "js-cookie";
 
 import {
   changePasswordAPI,
+  OrderAPI,
   UpdateProfileAPI,
 } from "../utils/apiAuth";
 
@@ -103,6 +107,14 @@ export const useUpdateUserMutation = () => {
   });
 };
 
+export const useOrderMutation = () => {
+  return useMutation({
+    mutationFn: (data: orderData) => {
+      return OrderAPI(data);
+    },
+  });
+};
+
 export const useChangePasswordMutation = () => {
   return useMutation({
     mutationFn: (data: password) => {
@@ -136,3 +148,11 @@ export const useContuctMutation = () => {
     },
   });
 };
+export const useSuggestionMutation = () => {
+  return useMutation({
+    mutationFn: (data: IFormSuggestionInput) => {
+      return SuggestionAPI(data);
+    },
+  });
+};
+

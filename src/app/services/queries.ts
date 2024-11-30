@@ -16,6 +16,7 @@ import {
   getCountriesAPI,
   getPageAPI,
   MealsAPI,
+  MealAPI,
 } from "../utils/api";
 import {
   getLogoutAPI,
@@ -31,6 +32,14 @@ export function MealsQuery(id: string|undefined) {
   return useQuery({
     queryKey: ["meals", id],
     queryFn: async () => await MealsAPI(id),
+    refetchOnMount: false,
+  });
+}
+
+export function MealQuery(id: string|undefined) {
+  return useQuery({
+    queryKey: ["meals", id],
+    queryFn: async () => await MealAPI(id),
     refetchOnMount: false,
   });
 }

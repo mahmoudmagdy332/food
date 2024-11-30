@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import LanguageMenu from "./LanguageMenu";
 import Cookies from "js-cookie";
 import { useLogout } from "../../app/utils/hooks/useAuth";
+import { useCartSelector } from "../../app/slices/CartSlice";
 const SideBar = () => {
+  const {cart_total,items_count}=useCartSelector((state)=>state.cartReducer);
   const [hover,setHover]=useState(false);
   const { refetch } = useLogout();
   const handleLogout = async () => {
@@ -44,6 +46,12 @@ const SideBar = () => {
                 Contact Us
               </Link>
               </li>
+              <li className="py-2 position-relative cursor-pointer" >
+              <Link to='/suggestion'>
+              Suggestions
+              </Link>
+              </li>
+              
               {!Cookies.get("access_token")?(
                 <>
                   <li className="py-2 position-relative cursor-pointer" >
@@ -94,8 +102,13 @@ const SideBar = () => {
       <img src="imgs/logo.png" className="logo"/>
       <i onClick={()=>setHover(!hover)} className="fa-solid fa-align-justify fa-2x open-close-icon"></i>
       <div>
-        <i className="fa-solid fa-globe d-block"></i>
-        <i className="fa-solid fa-share-nodes"></i>
+      <Link to='/cart'>
+              <i className="fa fa-cart-shopping bar cart" style={{color:'black'}}>
+                <div className='count ' style={{color:'white'}}>{items_count}</div>
+               
+              </i>
+              <div className='price'> {cart_total}<span>ج.م</span> </div>
+              </Link>
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { MealsQuery } from "../app/services/queries";
 import { meal } from "../app/type";
 import { useDispatch } from "react-redux";
@@ -30,13 +30,13 @@ const Meals = () => {
     <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-x-3 gap-y-12 my-4 mx-1">
     {meals?.map((meal)=>(
      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-     <a href="#">
+     <Link to={`/meal/${meal.id}`} >
          <img className="p-8 rounded-t-lg" src={meal.image}/>
-     </a>
+     </Link>
      <div className="px-5 pb-5">
-         <a href="#">
+         <Link to={`/meal/${meal.id}`} >
              <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">{meal.name}</h5>
-         </a>
+         </Link>
          <div className="flex items-center mt-2.5 mb-3">
          <span className="text-3xl font-bold text-gray-900 ">${meal.price}</span>
          </div>

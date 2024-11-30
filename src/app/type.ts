@@ -1,9 +1,6 @@
 
 
-export type ingredient={
-  strIngredient:string,
-  strDescription:string
-}
+
 
 export type setting = {
   logo: string;
@@ -37,7 +34,10 @@ export type settingType = {
   setting: setting | null;
   loading: boolean;
   categories: category[] | null;
-
+  ricee:ingredient[],
+  braeds:ingredient[],
+  drinks:ingredient[],
+  salads:ingredient[]
 };
 
 export type langInitialState = {
@@ -118,8 +118,19 @@ export interface IFormContuctInput {
   message: string;
   phone: string;
 }
+export interface IFormSuggestionInput {
+  email: string;
+  suggestion: string;
 
+}
 
+export type ingredient=
+  {
+    id: number,
+    image: string,
+    name: string,
+
+}
 
 
 export type meal = {
@@ -138,11 +149,31 @@ export type meal = {
           cancer: boolean,
           name:string,
           description:string,
+          rice:ingredient,
+          drink: ingredient,
+          salad: ingredient,
+          bread:ingredient
 };
 
 
+export type customizations={ 
+  rice_id:number|undefined,
+  bread_id:number|undefined,
+  salad_id:number|undefined,
+  drink_id:number|undefined,
+ }
 export type CartType={ 
-  items:{meal:meal,quantity:number}[],
+  items:{meal:meal,quantity:number,customizations:customizations|null}[],
   items_count:number,
   cart_total:number
+ }
+
+ 
+
+ export type orderData={ 
+  meals:{ 
+    id: number,
+    quantity: number,
+    customizations:customizations|null
+}[]
  }

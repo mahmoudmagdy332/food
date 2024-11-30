@@ -13,6 +13,9 @@ import AuthenticationRouter from "./guard/AuthenticationRouter";
 import Profile from "../../pages/Profile";
 import Meals from "../../pages/Meals";
 import CartScreen from "../../pages/Cart";
+import SingleMeal from "../../pages/SingleMeal";
+import Suggestion from "../../pages/Suggestion";
+import Payment from "../../pages/Payment";
 
 
 
@@ -61,6 +64,14 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path:"/suggestion",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Suggestion />
+          </Suspense>
+        ),
+      },
+      {
         path:"/ingredients",
         element: (
           <Suspense fallback={<Loading />}>
@@ -104,6 +115,14 @@ const routes = createBrowserRouter([
         ),
       },
       {
+        path:"/meal/:id",
+        element: (
+          <Suspense fallback={<Loading />}>
+              <SingleMeal />
+          </Suspense>
+        ),
+      },
+      {
         path:"/cart",
         element: (
           <Suspense fallback={<Loading />}>
@@ -111,7 +130,15 @@ const routes = createBrowserRouter([
           </Suspense>
         ),
       },
-      
+      {
+        path:"/payment",
+        element: (
+          <Suspense fallback={<Loading />}>
+              <Payment />
+          </Suspense>
+        ),
+      },
+       
     ],
   },
 ]);

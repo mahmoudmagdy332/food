@@ -211,6 +211,10 @@
   "weight":"Weight",
   "contact":"Contact Us",
   "success":"sent Form success",
-  "Update":"Update Profile"
+  "price":"Price",
+  "quantity":"Quantity",
+  "Update":"Update Profile",
+  "suggestion":"Suggestions",
+   "your_suggestion":"Your Suggestion"
 
 }

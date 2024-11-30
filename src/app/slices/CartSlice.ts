@@ -38,11 +38,28 @@ export const CartSlice =  createSlice({
           const item={
           meal:action.payload.meal,
           quantity:action.payload.quantity,
+          customizations:null
       }
        state.items.unshift(item);
       }
       state.items_count=state.items_count+action.payload.quantity;
       state.cart_total=state.cart_total+(parseFloat(action.payload.meal.price)*action.payload.quantity);
+     
+      window.localStorage.setItem("CartStorage",JSON.stringify(state));
+      
+    },
+    add_customizations: (state,action) => {
+    
+      if(state.items.find((item)=>item.meal.id===action.payload.id)){
+      
+        state.items=state.items.map((item)=>{
+           if(item.meal.id===action.payload.id){          
+            item.customizations=action.payload.customization;
+           }    
+           return item;      
+        });
+    
+      }
      
       window.localStorage.setItem("CartStorage",JSON.stringify(state));
       
@@ -58,6 +75,15 @@ export const CartSlice =  createSlice({
       })
       state.items=state.items.filter((_,idx)=>idx!==action.payload);
 
+      window.localStorage.setItem("CartStorage",JSON.stringify(state));      
+    },
+
+
+
+    del_all: (state) => {
+      state.items=[];
+      state.items_count=0;
+      state.cart_total=0;
       window.localStorage.setItem("CartStorage",JSON.stringify(state));      
     },
   //   increase_quantity: (state,action) => { 
@@ -142,7 +168,7 @@ export const CartSlice =  createSlice({
 
   },
 })
-export const {add_item,del_item}=CartSlice.actions
+export const {add_item,del_item,add_customizations,del_all}=CartSlice.actions
 export default CartSlice.reducer
 
 export const useCartSelector = useSelector.withTypes<RootState>()
