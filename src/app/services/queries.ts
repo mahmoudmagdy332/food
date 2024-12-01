@@ -17,6 +17,7 @@ import {
   getPageAPI,
   MealsAPI,
   MealAPI,
+  getBlanesAPI,
 } from "../utils/api";
 import {
   getLogoutAPI,
@@ -48,6 +49,14 @@ export function settingQuery() {
   return useQuery({
     queryKey: ["setting"],
     queryFn: async () => await getSettingAPI(),
+    refetchOnMount: false,
+    retry: 1,
+  });
+}
+export function BlanesQuery() {
+  return useQuery({
+    queryKey: ["Blane"],
+    queryFn: async () => await getBlanesAPI(),
     refetchOnMount: false,
     retry: 1,
   });

@@ -63,7 +63,7 @@ export const useProfile = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isSuccess, data, isLoading, isError, refetch } = authUserQuery();
   useEffect(() => {
-    if (data) dispatch(updateUser(data.data.user));
+    if (data) dispatch(updateUser(data.data));
   }, [data, isSuccess]);
 
   return { data, isSuccess, isLoading, isError, refetch };

@@ -16,6 +16,9 @@ import CartScreen from "../../pages/Cart";
 import SingleMeal from "../../pages/SingleMeal";
 import Suggestion from "../../pages/Suggestion";
 import Payment from "../../pages/Payment";
+import NotFound from "../../pages/NotFound";
+import Orders from "../../pages/Orders";
+import Blanes from "../../pages/Blanes";
 
 
 
@@ -138,7 +141,23 @@ const routes = createBrowserRouter([
           </Suspense>
         ),
       },
-       
+      {
+        path:"/orders",
+        element: (
+          <Suspense fallback={<Loading />}>
+              <Orders />
+          </Suspense>
+        ),
+      },
+      {
+        path:"/blanes",
+        element: (
+          <Suspense fallback={<Loading />}>
+              <Blanes />
+          </Suspense>
+        ),
+      },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);

@@ -8,6 +8,7 @@ import { UserState } from "../type";
 
 const initialState: UserState = {
   user: null,
+  orders:[]
 };
 
 export const userSlice = createSlice({
@@ -25,8 +26,8 @@ export const userSlice = createSlice({
       }
     },
     updateUser: (state, action) => {
-      state.user = action.payload;
-     
+      state.user = action.payload.user;
+      state.orders = action.payload.meals;
       localStorage.setItem("user", JSON.stringify(action.payload));
     },
     changeImage: (state, action) => {

@@ -22,6 +22,8 @@ export const SingleInstructorAPI = (id: string) =>
 export const postSignupUserApi = (data: userData) => api.post("signup", data);
 export const getSettingAPI = () => api.get("settings");
 
+export const getBlanesAPI = () => api.get("dietplans");
+
 
 export const MealsAPI = (id:string|undefined) => api.get(`categotry-details/${id}`);
 export const MealAPI = (id:string|undefined) => api.get(`meal-details/${id}`);
