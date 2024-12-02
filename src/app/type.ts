@@ -79,7 +79,7 @@ export type User = {
 
 export type UserState = {
   user: User | null;
-  orders:{meal:meal,quantity:number,customizations:customizations|null}[];
+  orders:order[];
 };
 
 export type userUpdateData = {
@@ -178,7 +178,26 @@ export type CartType={
 }[]
  }
 
+ export type order={
 
+  meal: {
+      id:number;
+      image:string;
+      name:string;
+      price:number;
+      rice:string;
+      salad:string;
+      bread:string;
+      drink:string;
+  };
+  quantity: number,
+  customizations:{
+    rice:string;
+    salad:string;
+    bread:string;
+    drink:string;
+  }
+ }
  export type plan={
   id: number;
   disease: string;

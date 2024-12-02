@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { useUserSliceSelector } from '../app/slices/userSlice';
 import SingleOrder from '../components/common/SingleOrder';
-import { meal } from '../app/type';
+import {  order } from '../app/type';
 
 
 
@@ -12,13 +12,13 @@ const Orders = () => {
 
   const {orders} = useUserSliceSelector((state) => state.userReducer);
   console.log('dsffsdfsd',orders);
-  const [selectedMeal,setSelectedMeal]=useState<meal>();
+  const [selectedMeal,setSelectedMeal]=useState<order>();
   const [open,setOpen]=useState(false);
   const HandleOpen=(a:boolean)=>{
       setOpen(a);
   }
-  const Change=(meal:meal)=>{
-      setSelectedMeal(meal);
+  const Change=(order:order)=>{
+      setSelectedMeal(order);
       HandleOpen(true);
   }
   
@@ -77,7 +77,7 @@ const Orders = () => {
               {order.quantity*order.meal.price} $
               </td>
               <td>
-                <button className='btn btn-warning' onClick={()=>Change(order.meal)}>Ditails</button>
+                <button className='btn btn-warning' onClick={()=>Change(order)}>Ditails</button>
               </td>
              </tr>       
       ))}
@@ -93,7 +93,7 @@ const Orders = () => {
            </div>
         </div>
         </div>   
-        <SingleOrder meal={selectedMeal} open={open} handleOpen={HandleOpen}/>
+        <SingleOrder order={selectedMeal} open={open} handleOpen={HandleOpen}/>
     </div>
   )
 }

@@ -72,6 +72,11 @@ const SideBar = () => {
                       Profile
                   </Link>
               </li>
+              <li className="py-2 position-relative cursor-pointer" >
+                  <Link to='/orders'>
+                      My Orders
+                  </Link>
+              </li>
                <li className="py-2 position-relative cursor-pointer" >
                   <button onClick={handleLogout}>
                       Logout
